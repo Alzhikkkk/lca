@@ -1,5 +1,7 @@
 import Aside from './components/Aside';
 import Header from './components/Header';
+import Main from './pages/main';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -7,6 +9,8 @@ function App() {
         <Aside></Aside>
         <div>
           <Header></Header>
+          <Main></Main>
+          <Footer></Footer>
         </div>
     </div>
   );
