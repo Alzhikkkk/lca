@@ -49,3 +49,14 @@
     box-sizing: border-box;
     border: none;
 }
+
+@media (max-width: 864px) {
+    .footer{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-contact{
+        flex-direction: column-reverse;
+    }
+}

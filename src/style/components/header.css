@@ -3,7 +3,7 @@
 }
 
 .App>div{
-    width: 85%;
+    width: calc(100% - 15%);
     margin-left: 15%;
 }
 
@@ -46,3 +46,18 @@
     font-weight: 600;
     font-size: 18px;
 }
+
+@media (max-width: 1215px) {
+   .App>div{
+     margin-left: 200px;
+     width: calc(100% - 200px);
+   }    
+}
+
+@media (max-width: 580px) {
+    .App>div{
+       margin-left: 0 !important;
+       width: 100%;
+    }    
+
+ }

@@ -5,18 +5,24 @@ import maleficent from '../assets/maleficent.jpeg';
 import harry from '../assets/harry.jpg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { useRef, useEffect } from 'react';
 
 // Import Swiper styles
 import 'swiper/css';
+import { useState } from 'react';
+
 
 export default function Main(){
+    const section = useRef();
+    const [links, setLinks] = useState("https://www.youtube.com/embed/n0OFH4xpPr4")
+    const [width, setWidth] = useState(0);
     return(
         <main className="main">
             <section className="slider">
                 <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
-                    onSlideChange={() => console.log('slide change')}
+                    onSlideChange={() => setWidth(window.innerWidth)}
                     onSwiper={(swiper) => console.log(swiper)}
                     autoplay={{
                         delay: 5000,
@@ -157,38 +163,79 @@ export default function Main(){
                      </div>
                 </div>
             </section>
-            <section className='trailer'>
+            <section className='trailer' id="trailer"  ref={section}>
                 <div className='trailer_video'>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/IuY4-6qWm-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="560" height="315" src={links} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <div className='trailer_slider'>
+                    <div>
+                        <h1>New film trailers</h1>
+                        <h3>Watch now</h3>
+                    </div>
                 <Swiper
                     slidesPerView={4}
-                    direction='vertical'
+                    direction={"vertical"}
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
                     pagination={{
                         clickable: true,
                     }}
                     modules={[Autoplay, Pagination, Navigation]}
+                    className="slider-item"
                     >
-                        <SwiperSlide className="trailer-items" style={{background: `url(${maleficent}) no-repeat`, backgroundPosition: "center", backgroundSize: "cover"}}>
-                                <h1>Maleficent</h1>
+                        <SwiperSlide className="trailer-items" onClick={() => setLinks("https://www.youtube.com/embed/n0OFH4xpPr4")}>
+                                <div>
+                                    <img src={maleficent} alt=""/>
+                                    <span>
+                                        <h1>Maleficent</h1>
+                                        <h3>Mystery / 2 hours</h3>
+                                    </span>
+                                </div>
                         </SwiperSlide>
-                        <SwiperSlide className="trailer-items" style={{background: `url(${harry}) no-repeat`, backgroundPosition: "center", backgroundSize: "cover"}}>
-                                <h1>Harry Potter</h1>
+                        <SwiperSlide className="trailer-items" onClick={() => setLinks("https://www.youtube.com/embed/JYLdTuL9Wjw")}>
+                                 <div>
+                                    <img src={harry} alt=""/>
+                                    <span>
+                                        <h1>Harry Potter</h1>
+                                        <h3>Fantasy / 2 hours</h3>
+                                    </span>
+                                </div>
                         </SwiperSlide>
-                        <SwiperSlide className="trailer-items" style={{background: `url(${maleficent}) no-repeat`, backgroundPosition: "center", backgroundSize: "cover"}}>
-                                <h1>Maleficent</h1>
+                        <SwiperSlide className="trailer-items" onClick={() => setLinks("https://www.youtube.com/embed/n0OFH4xpPr4")}>
+                                <div>
+                                    <img src={maleficent} alt=""/>
+                                    <span>
+                                        <h1>Maleficent</h1>
+                                        <h3>Mystery / 2 hours</h3>
+                                    </span>
+                                </div>
                         </SwiperSlide>
-                        <SwiperSlide className="trailer-items" style={{background: `url(${harry}) no-repeat`, backgroundPosition: "center", backgroundSize: "cover"}}>
-                                <h1>Harry Potter</h1>
+                        <SwiperSlide className="trailer-items" onClick={() => setLinks("https://www.youtube.com/embed/JYLdTuL9Wjw")} >
+                                <div>
+                                    <img src={harry} alt=""/>
+                                    <span>
+                                        <h1>Harry Potter</h1>
+                                        <h3>Fantasy / 2 hours</h3>
+                                    </span>
+                                </div>
                         </SwiperSlide>
-                        <SwiperSlide className="trailer-items" style={{background: `url(${maleficent}) no-repeat`, backgroundPosition: "center", backgroundSize: "cover"}}>
-                                <h1>Maleficent</h1>
+                        <SwiperSlide className="trailer-items" onClick={() => setLinks("https://www.youtube.com/embed/n0OFH4xpPr4")}> 
+                                <div>
+                                    <img src={maleficent} alt=""/>
+                                    <span>
+                                        <h1>Maleficent</h1>
+                                        <h3>Mystery / 2 hours</h3>
+                                    </span>
+                                </div>
                         </SwiperSlide>
-                        <SwiperSlide className="trailer-items" style={{background: `url(${maleficent}) no-repeat`, backgroundPosition: "center", backgroundSize: "cover"}}>
-                                <h1>Maleficent</h1>
+                        <SwiperSlide className="trailer-items" onClick={() => setLinks("https://www.youtube.com/embed/JYLdTuL9Wjw")}>
+                                 <div>
+                                    <img src={harry} alt=""/>
+                                    <span>
+                                        <h1>Harry Potter</h1>
+                                        <h3>Fantasy / 2 hours</h3>
+                                    </span>
+                                </div>
                         </SwiperSlide>
                     </Swiper>
                 </div>
