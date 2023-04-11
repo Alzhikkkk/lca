@@ -295,7 +295,7 @@
         background-size: contain !important;
     }
 
-    .swiper-slide{
+    .slider > .swiper-slide{
         height: 25vh !important;
         background-color: #000 !important;
     }
